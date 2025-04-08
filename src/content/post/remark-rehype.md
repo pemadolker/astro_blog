@@ -1,763 +1,150 @@
 ---
-title: "Remark-Rehype"
-description: "This post is about Remark-Rehype plugin for Astro"
-publishDate: "26 January 2025"
-tags: ["rehype", "remark", "astro", "plugin"]
-draft: false
+title: "OSINT BNB"
+description: "This post is on OSINT BNB"
+publishDate: "8th April 2025"
+tags: [ "Assignment", "BNB", "Osint"]
 ---
+## 1. Introduction
 
-## What is this?
-
-This package is a [unified][] ([remark][]) plugin that switches from remark (the
-markdown ecosystem) to rehype (the HTML ecosystem).
-It does this by transforming the current markdown (mdast) syntax tree into an
-HTML (hast) syntax tree.
-remark plugins deal with mdast and rehype plugins deal with hast, so plugins
-used after `remark-rehype` have to be rehype plugins.
-
-The reason that there are different ecosystems for markdown and HTML is that
-turning markdown into HTML is, while frequently needed, not the only purpose of
-markdown.
-Checking (linting) and formatting markdown are also common use cases for
-remark and markdown.
-There are several aspects of markdown that do not translate 1-to-1 to HTML.
-In some cases markdown contains more information than HTML: for example, there
-are several ways to add a link in markdown (as in, autolinks: `<https://url>`,
-resource links: `[label](url)`, and reference links with definitions:
-`[label][id]` and `[id]: url`).
-In other cases HTML contains more information than markdown: there are many
-tags, which add new meaning (semantics), available in HTML that aren’t available
-in markdown.
-If there was just one AST, it would be quite hard to perform the tasks that
-several remark and rehype plugins currently do.
-
-## When should I use this?
-
-This project is useful when you want to turn markdown to HTML.
-It opens up a whole new ecosystem with tons of plugins to do all kinds of
-things.
-You can [minify HTML][rehype-minify], [format HTML][rehype-format],
-[make sure it’s safe][rehype-sanitize], [highlight code][rehype-highlight],
-[add metadata][rehype-meta], and a lot more.
-
-A different plugin, [`rehype-raw`][rehype-raw], adds support for raw HTML
-written inside markdown.
-This is a separate plugin because supporting HTML inside markdown is a heavy
-task (performance and bundle size) and not always needed.
-To use both together, you also have to configure `remark-rehype` with
-`allowDangerousHtml: true` and then use `rehype-raw`.
-
-The rehype plugin [`rehype-remark`][rehype-remark] does the inverse of this
-plugin.
-It turns HTML into markdown.
-
-If you don’t use plugins and want to access syntax trees, you can use
-[`mdast-util-to-hast`][mdast-util-to-hast].
-
-## Install
-
-This package is [ESM only][esm].
-In Node.js (version 16+), install with [npm][]:
-
-```sh
-npm install remark-rehype
-```
-
-In Deno with [`esm.sh`][esmsh]:
-
-```js
-import remarkRehype from 'https://esm.sh/remark-rehype@11'
-```
-
-In browsers with [`esm.sh`][esmsh]:
-
-```html
-<script type="module">
-  import remarkRehype from 'https://esm.sh/remark-rehype@11?bundle'
-</script>
-```
-
-## Use
-
-Say our document `example.md` contains:
-
-```markdown
-# Pluto
-
-**Pluto** (minor-planet designation: **134340 Pluto**) is a
-[dwarf planet](https://en.wikipedia.org/wiki/Dwarf_planet) in the
-[Kuiper belt](https://en.wikipedia.org/wiki/Kuiper_belt).
-```
-
-…and our module `example.js` contains:
-
-```js
-import rehypeDocument from 'rehype-document'
-import rehypeFormat from 'rehype-format'
-import rehypeStringify from 'rehype-stringify'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import {read} from 'to-vfile'
-import {unified} from 'unified'
-import {reporter} from 'vfile-reporter'
-
-const file = await unified()
-  .use(remarkParse)
-  .use(remarkRehype)
-  .use(rehypeDocument)
-  .use(rehypeFormat)
-  .use(rehypeStringify)
-  .process(await read('example.md'))
+Open Source Intelligence (OSINT) is the process of collecting, analyzing and utilizing information from publicly availble sources to gain insights into a subject of interest. These sources include websites, social media platforms, public records, news articles, and more. The primary purpose of OSINT is to gather actionable intelligence without engaging in intrusive or illegal activities, making it a valuable tool in cybersecurity, competitive analysis, and investigative research.
 
-console.error(reporter(file))
-console.log(String(file))
-```
+Bhutan National Bank (BNB) is a  financial institution in Bhutan, established in 1997 and headquartered in Thimphu, the capital city with an initial funding of Nu. 2.5 million by the Royal Insurance Corporation of Bhutan. Over the years, BNB has played a pivotal role in the economic development of Bhutan by providing essential financial services and fostering financial inclusion.
 
-…then running `node example.js` yields:
+ 
 
-```txt
-example.md: no issues found
-```
+The objective of this OSINT investigation is to systematically collect and analyze publicly available information about Bhutan National Bank to assess its digital footprint and identify potential security vulnerabilities.  This assessment aims to provide actionable insights and recommendations to enhance BNB's cybersecurity measures .
 
-HTML:
+## 2. Methodology
 
-```html
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>example</title>
-    <meta content="width=device-width, initial-scale=1" name="viewport">
-  </head>
-  <body>
-    <h1>Pluto</h1>
-    <p>
-      <strong>Pluto</strong> (minor-planet designation: <strong>134340 Pluto</strong>) is a
-      <a href="https://en.wikipedia.org/wiki/Dwarf_planet">dwarf planet</a> in the
-      <a href="https://en.wikipedia.org/wiki/Kuiper_belt">Kuiper belt</a>.
-    </p>
-  </body>
-</html>
-```
+This OSINT investigation on Bhutan National Bank (BNB) follows a structured approach to gathering, analyzing, and interpreting publicly available data. The methodology includes various sources, tools, and ethical considerations to ensure responsible information collection.
 
-## API
+**Sources of Data Collection**
 
-This package exports the identifiers
-[`defaultFootnoteBackContent`][api-default-footnote-back-content],
-[`defaultFootnoteBackLabel`][api-default-footnote-back-label], and
-[`defaultHandlers`][api-default-handlers].
-The default export is [`remarkRehype`][api-remark-rehype].
+To gather relevant information, multiple publicly accessible sources were utilized, including:
 
-### `defaultFootnoteBackContent(referenceIndex, rereferenceIndex)`
+- Search Engines – Google were used with Google Dorks to refine searches and extract hidden or indexed information.
+- WHOIS Lookup – Conducted via nic.bt to obtain domain registration details, including ownership and hosting information.
+- Shodan – Used to identify exposed services, open ports, and potential security misconfigurations in BNB’s online infrastructure.
+- Have I Been Pwned – Checked for any leaked credentials associated with BNB or its employees in past data breaches.
+- APK Decompiler – Used to analyze the security posture of the bank's mobile application, if available.
+- Company Website & Job Listings – Reviewed for technical stack exposure, internal software usage, and security-related insights.
+- Social Media & Public Documents – Investigated LinkedIn, Facebook, and financial reports for information on employees, stakeholders, and policies.
 
-See [`defaultFootnoteBackContent` from
-`mdast-util-to-hast`][mdast-util-to-hast-default-footnote-back-content]
+**Tools Used**
 
-### `defaultFootnoteBackLabel(referenceIndex, rereferenceIndex)`
+Various OSINT tools were employed to extract and analyze data, including:
 
-See [`defaultFootnoteBackLabel` from
-`mdast-util-to-hast`][mdast-util-to-hast-default-footnote-back-label]
+- Shodan – To map the bank’s publicly exposed assets and open ports.
+- Have I Been Pwned – To check for breached credentials related to BNB.
+- Decompilers  – To inspect the bank’s mobile application for potential security weaknesses.
+- nic.bt WHOIS Lookup – To retrieve domain information and hosting details.
+- Google Dorks – To uncover hidden web pages and indexed sensitive information.
+- nslookup – Used for DNS analysis and identifying IP addresses ..
 
-### `defaultHandlers`
+### **Company Overview: Bhutan National Bank**
 
-See [`defaultHandlers` from
-`mdast-util-to-hast`][mdast-util-to-hast-default-handlers]
+**General Details**:
 
-### `unified().use(remarkRehype[, destination][, options])`
+- Company Name: Bhutan National Bank Limited (BNB)
+- Registration: Established on July 25, 1980, as the Unit Trust of Bhutan (UTB); became an independent financial institution in 1992 and evolved into a commercial bank in 1997.
+- Location: Headquartered in Thimphu, Bhutan.
+- Business Model: Provides a comprehensive range of financial services, including personal and corporate banking, international banking, and digital banking solutions
 
-Turn markdown into HTML.
+**Official Website and Domain Information:**
 
-###### Parameters
+- Official Website: https://bnb.bt/
+- Domain Information: The domain `bnb.bt` is registered under the `.bt` country code top-level domain (ccTLD) for Bhutan. Specific WHOIS details are not available due to the lack of a public WHOIS server for `.bt` domains.
+- SSL Certificate Details: The website employs HTTPS, indicating the use of an SSL certificate to secure data transmission.
 
-* `destination` ([`Processor`][unified-processor], optional)
-  — processor
-* `options` ([`Options`][api-options], optional)
-  — configuration
+### 4. Digital Footprint Analysis
 
-###### Returns
+### Website Analysis
 
-Transform ([`Transformer`][unified-transformer]).
+- Subdomains: Checked for subdomains using nslookup but significant subdomains were found.
 
-##### Notes
+**Technology Stack:**
 
-###### Signature
+- CMS & Blog: WordPress
+- Database: MySQL
+- Programming Language: PHP
+- JavaScript Library: jQuery
+- Analytics & SEO: Google Analytics, Site Kit, Yoast SEO
 
-* if a [processor][unified-processor] is given, runs the (rehype) plugins
-  used on it with a hast tree, then discards the result
-  ([*bridge mode*][unified-mode])
-* otherwise, returns a hast tree, the plugins used after `remarkRehype`
-  are rehype plugins ([*mutate mode*][unified-mode])
-
-:::note
-It’s highly unlikely that you want to pass a `processor`.
-:::
-
-###### HTML
-
-Raw HTML is available in mdast as [`html`][mdast-html] nodes and can be embedded
-in hast as semistandard `raw` nodes.
-Most plugins ignore `raw` nodes but two notable ones don’t:
-
-* [`rehype-stringify`][rehype-stringify] also has an option
-  `allowDangerousHtml` which will output the raw HTML.
-  This is typically discouraged as noted by the option name but is useful if
-  you completely trust authors
-* [`rehype-raw`][rehype-raw] can handle the raw embedded HTML strings by
-  parsing them into standard hast nodes (`element`, `text`, etc).
-  This is a heavy task as it needs a full HTML parser, but it is the only way
-  to support untrusted content
-
-###### Footnotes
-
-Many options supported here relate to footnotes.
-Footnotes are not specified by CommonMark, which we follow by default.
-They are supported by GitHub, so footnotes can be enabled in markdown with
-[`remark-gfm`][remark-gfm].
-
-The options `footnoteBackLabel` and `footnoteLabel` define natural language
-that explains footnotes, which is hidden for sighted users but shown to
-assistive technology.
-When your page is not in English, you must define translated values.
-
-Back references use ARIA attributes, but the section label itself uses a
-heading that is hidden with an `sr-only` class.
-To show it to sighted users, define different attributes in
-`footnoteLabelProperties`.
-
-###### Clobbering
-
-Footnotes introduces a problem, as it links footnote calls to footnote
-definitions on the page through `id` attributes generated from user content,
-which results in DOM clobbering.
-
-DOM clobbering is this:
-
-```html
-<p id=x></p>
-<script>alert(x) // `x` now refers to the DOM `p#x` element</script>
-```
-
-Elements by their ID are made available by browsers on the `window` object,
-which is a security risk.
-Using a prefix solves this problem.
-
-More information on how to handle clobbering and the prefix is explained in
-[*Example: headings (DOM clobbering)* in
-`rehype-sanitize`][rehype-sanitize-clobber].
-
-###### Unknown nodes
-
-Unknown nodes are nodes with a type that isn’t in `handlers` or `passThrough`.
-The default behavior for unknown nodes is:
-
-* when the node has a `value` (and doesn’t have `data.hName`,
-  `data.hProperties`, or `data.hChildren`, see later), create a hast `text`
-  node
-* otherwise, create a `<div>` element (which could be changed with
-  `data.hName`), with its children mapped from mdast to hast as well
-
-This behavior can be changed by passing an `unknownHandler`.
-
-### `Options`
-
-Configuration (TypeScript type).
-
-###### Fields
-
-* `allowDangerousHtml` (`boolean`, default: `false`)
-  — whether to persist raw HTML in markdown in the hast tree
-* `clobberPrefix` (`string`, default: `'user-content-'`)
-  — prefix to use before the `id` property on footnotes to prevent them from
-  *clobbering*
-* `footnoteBackContent`
-  ([`FootnoteBackContentTemplate` from
-  `mdast-util-to-hast`][mdast-util-to-hast-footnote-back-content-template]
-  or `string`, default:
-  [`defaultFootnoteBackContent` from
-  `mdast-util-to-hast`][mdast-util-to-hast-default-footnote-back-content])
-  — content of the backreference back to references
-* `footnoteBackLabel`
-  ([`FootnoteBackLabelTemplate` from
-  `mdast-util-to-hast`][mdast-util-to-hast-footnote-back-label-template]
-  or `string`, default:
-  [`defaultFootnoteBackLabel` from
-  `mdast-util-to-hast`][mdast-util-to-hast-default-footnote-back-label])
-  — label to describe the backreference back to references
-* `footnoteLabel` (`string`, default: `'Footnotes'`)
-  — label to use for the footnotes section (affects screen readers)
-* `footnoteLabelProperties`
-  ([`Properties` from `@types/hast`][hast-properties], default:
-  `{className: ['sr-only']}`)
-  — properties to use on the footnote label
-  (note that `id: 'footnote-label'` is always added as footnote calls use it
-  with `aria-describedby` to provide an accessible label)
-* `footnoteLabelTagName` (`string`, default: `h2`)
-  — tag name to use for the footnote label
-* `handlers` ([`Handlers` from
-  `mdast-util-to-hast`][mdast-util-to-hast-handlers], optional)
-  — extra handlers for nodes
-* `passThrough` (`Array<Nodes['type']>`, optional)
-  — list of custom mdast node types to pass through (keep) in hast (note that
-  the node itself is passed, but eventual children are transformed)
-* `unknownHandler` ([`Handler` from
-  `mdast-util-to-hast`][mdast-util-to-hast-handler], optional)
-  — handle all unknown nodes
-
-## Examples
-
-### Example: supporting HTML in markdown naïvely
-
-If you completely trust the authors of the input markdown and want to allow them
-to write HTML inside markdown, you can pass `allowDangerousHtml` to
-`remark-rehype` and `rehype-stringify`:
-
-```js
-import rehypeStringify from 'rehype-stringify'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import {unified} from 'unified'
-
-const file = await unified()
-  .use(remarkParse)
-  .use(remarkRehype, {allowDangerousHtml: true})
-  .use(rehypeStringify, {allowDangerousHtml: true})
-  .process('<a href="/wiki/Dysnomia_(moon)" onclick="alert(1)">Dysnomia</a>')
-
-console.log(String(file))
-```
-
-Yields:
-
-```html
-<p><a href="/wiki/Dysnomia_(moon)" onclick="alert(1)">Dysnomia</a></p>
-```
-
-:::caution
-Оbserve that the XSS attack through `onclick` is present.
-:::
-
-### Example: supporting HTML in markdown properly
-
-If you do not trust the authors of the input markdown, or if you want to make
-sure that rehype plugins can see HTML embedded in markdown, use
-[`rehype-raw`][rehype-raw].
-The following example passes `allowDangerousHtml` to `remark-rehype`, then
-turns the raw embedded HTML into proper HTML nodes with `rehype-raw`, and
-finally sanitizes the HTML by only allowing safe things with
-`rehype-sanitize`:
-
-```js
-import rehypeSanitize from 'rehype-sanitize'
-import rehypeStringify from 'rehype-stringify'
-import rehypeRaw from 'rehype-raw'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import {unified} from 'unified'
-
-const file = await unified()
-  .use(remarkParse)
-  .use(remarkRehype, {allowDangerousHtml: true})
-  .use(rehypeRaw)
-  .use(rehypeSanitize)
-  .use(rehypeStringify)
-  .process('<a href="/wiki/Dysnomia_(moon)" onclick="alert(1)">Dysnomia</a>')
-
-console.log(String(file))
-```
-
-Running that code yields:
-
-```html
-<p><a href="/wiki/Dysnomia_(moon)">Dysnomia</a></p>
-```
-
-:::caution
-Оbserve that the XSS attack through `onclick` is **not** present.
-:::
-
-### Example: footnotes in languages other than English
-
-If you know that the markdown is authored in a language other than English,
-and you’re using `remark-gfm` to match how GitHub renders markdown, and you know
-that footnotes are (or can?) be used, you should translate the labels associated
-with them.
-
-Let’s first set the stage:
-
-```js
-import {unified} from 'unified'
-import remarkParse from 'remark-parse'
-import remarkGfm from 'remark-gfm'
-import remarkRehype from 'remark-rehype'
-import rehypeStringify from 'rehype-stringify'
-
-const doc = `
-Ceres ist nach der römischen Göttin des Ackerbaus benannt;
-ihr astronomisches Symbol ist daher eine stilisierte Sichel: ⚳.[^nasa-2015]
-
-[^nasa-2015]: JPL/NASA:
-    [*What is a Dwarf Planet?*](https://www.jpl.nasa.gov/infographics/what-is-a-dwarf-planet)
-    In: Jet Propulsion Laboratory.
-    22. April 2015,
-    abgerufen am 19. Januar 2022 (englisch).
-`
-
-const file = await unified()
-  .use(remarkParse)
-  .use(remarkGfm)
-  .use(remarkRehype)
-  .use(rehypeStringify)
-  .process(doc)
-
-console.log(String(file))
-```
-
-Yields:
-
-```html
-<p>
-  Ceres ist nach der römischen Göttin des Ackerbaus benannt; 
-  ihr astronomisches Symbol ist daher eine stilisierte Sichel: ⚳.
-  <sup>
-    <a 
-      href="#user-content-fn-nasa-2015" 
-      id="user-content-fnref-nasa-2015" 
-      data-footnote-ref aria-describedby="footnote-label"
-    >
-      1
-    </a>
-  </sup>
-</p>
-<section data-footnotes class="footnotes">
-  <h2 class="sr-only" id="footnote-label">Footnotes</h2>
-  <ol>
-    <li id="user-content-fn-nasa-2015">
-      <p>
-        JPL/NASA:
-        <a href="https://www.jpl.nasa.gov/infographics/what-is-a-dwarf-planet">
-          <em>What is a Dwarf Planet?</em>
-        </a>
-        In: Jet Propulsion Laboratory.
-        22. April 2015,
-        abgerufen am 19. Januar 2022 (englisch).
-        <a 
-          href="#user-content-fnref-nasa-2015" 
-          data-footnote-backref="" 
-          aria-label="Back to reference 1" 
-          class="data-footnote-backref"
-        >
-          ↩
-        </a>
-      </p>
-    </li>
-  </ol>
-</section>
-```
-
-This is a mix of English and German that isn’t very accessible, such as that
-screen readers can’t handle it nicely.
-Let’s say our program *does* know that the markdown is in German.
-In that case, it’s important to translate and define the labels relating to
-footnotes so that screen reader users can properly pronounce the page:
-
-```diff
-@@ -18,7 +18,16 @@ ihr astronomisches Symbol ist daher eine stilisierte Sichel: ⚳.[^nasa-2015]
- const file = await unified()
-   .use(remarkParse)
-   .use(remarkGfm)
--  .use(remarkRehype)
-+  .use(remarkRehype, {
-+    footnoteBackLabel(referenceIndex, rereferenceIndex) {
-+      return (
-+        'Hochspringen nach: ' +
-+        (referenceIndex + 1) +
-+        (rereferenceIndex > 1 ? '-' + rereferenceIndex : '')
-+      )
-+    },
-+    footnoteLabel: 'Fußnoten'
-+  })
-   .use(rehypeStringify)
-   .process(doc)
-```
-
-Running the code with the above patch applied, yields:
-
-```diff
-@@ -1,13 +1,13 @@
- <p>Ceres ist nach der römischen Göttin des Ackerbaus benannt;
- ihr astronomisches Symbol ist daher eine stilisierte Sichel: ⚳.<sup><a href="#user-content-fn-nasa-2015" id="user-content-fnref-nasa-2015" data-footnote-ref aria-describedby="footnote-label">1</a></sup></p>
--<section data-footnotes class="footnotes"><h2 class="sr-only" id="footnote-label">Footnotes</h2>
-+<section data-footnotes class="footnotes"><h2 class="sr-only" id="footnote-label">Fußnoten</h2>
- <ol>
- <li id="user-content-fn-nasa-2015">
- <p>JPL/NASA:
- <a href="https://www.jpl.nasa.gov/infographics/what-is-a-dwarf-planet"><em>What is a Dwarf Planet?</em></a>
- In: Jet Propulsion Laboratory.
- 22. April 2015,
--abgerufen am 19. Januar 2022 (englisch). <a href="#user-content-fnref-nasa-2015" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
-+abgerufen am 19. Januar 2022 (englisch). <a href="#user-content-fnref-nasa-2015" data-footnote-backref="" aria-label="Hochspringen nach: 1" class="data-footnote-backref">↩</a></p>
- </li>
- </ol>
- </section>
-```
-
-## HTML
-
-See [*Algorithm* in
-`mdast-util-to-hast`](https://github.com/syntax-tree/mdast-util-to-hast#algorithm)
-for info on how mdast (markdown) nodes are transformed to hast (HTML).
-
-## CSS
-
-Assuming you know how to use (semantic) HTML and CSS, then it should generally
-be straightforward to style the HTML produced by this plugin.
-With CSS, you can get creative and style the results as you please.
-
-Some semistandard features, notably GFMs tasklists and footnotes, generate HTML
-that be unintuitive, as it matches exactly what GitHub produces for their
-website.
-There is a project, [`sindresorhus/github-markdown-css`][github-markdown-css],
-that exposes the stylesheet that GitHub uses for rendered markdown, which might
-either be inspirational for more complex features, or can be used as-is to
-exactly match how GitHub styles rendered markdown.
-
-The following CSS is needed to make footnotes look a bit like GitHub:
-
-```css
-/* Style the footnotes section. */
-.footnotes {
-  font-size: smaller;
-  color: #8b949e;
-  border-top: 1px solid #30363d;
-}
-
-/* Hide the section label for visual users. */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  word-wrap: normal;
-  border: 0;
-}
-
-/* Place `[` and `]` around footnote calls. */
-[data-footnote-ref]::before {
-  content: '[';
-}
-
-[data-footnote-ref]::after {
-  content: ']';
-}
-```
-
-## Syntax tree
-
-This projects turns [mdast][] (markdown) into [hast][] (HTML).
-
-It extends mdast by supporting `data` fields on mdast nodes to specify how they
-should be transformed.
-See [*Fields on nodes* in
-`mdast-util-to-hast`](https://github.com/syntax-tree/mdast-util-to-hast#fields-on-nodes)
-for info on how these fields work.
-
-It extends hast by using a semistandard raw nodes for raw HTML.
-See the [*HTML* note above](#html) for more info.
-
-## Types
-
-This package is fully typed with [TypeScript][].
-It exports the types
-[`Options`][api-options].
-
-The types of `mdast-util-to-hast` can be referenced to register data fields
-with `@types/mdast` and `Raw` nodes with `@types/hast`.
-
-```js
-/**
- * @import {Root as HastRoot} from 'hast'
- * @import {Root as MdastRoot} from 'mdast'
- * @import {} from 'mdast-util-to-hast'
- */
-
-import {visit} from 'unist-util-visit'
-
-const mdastNode = /** @type {MdastRoot} */ ({/* … */})
-console.log(mdastNode.data?.hName) // Typed as `string | undefined`.
-
-const hastNode = /** @type {HastRoot} */ ({/* … */})
-
-visit(hastNode, function (node) {
-  // `node` can now be `raw`.
-})
-```
-
-## Compatibility
-
-Projects maintained by the unified collective are compatible with maintained
-versions of Node.js.
-
-When we cut a new major release, we drop support for unmaintained versions of
-Node.
-This means we try to keep the current release line, `remark-rehype@^11`,
-compatible with Node.js 16.
-
-This plugin works with `unified` version 6+, `remark-parse` version 3+ (used in
-`remark` version 7), and `rehype-stringify` version 3+ (used in `rehype`
-version 5).
-
-## Security
-
-Use of `remark-rehype` can open you up to a
-[cross-site scripting (XSS)][wiki-xss] attack.
-Embedded **[hast][]** properties (`hName`, `hProperties`, `hChildren`) in
-[mdast][], custom handlers, and the `allowDangerousHtml` option all provide
-openings.
-Use [`rehype-sanitize`][rehype-sanitize] to make the tree safe.
-
-## Related
-
-* [`rehype-raw`][rehype-raw]
-  — rehype plugin to parse the tree again and support `raw` nodes
-* [`rehype-sanitize`][rehype-sanitize]
-  — rehype plugin to sanitize HTML
-* [`rehype-remark`](https://github.com/rehypejs/rehype-remark)
-  — rehype plugin to turn HTML into markdown
-* [`rehype-retext`](https://github.com/rehypejs/rehype-retext)
-  — rehype plugin to support retext
-* [`remark-retext`](https://github.com/remarkjs/remark-retext)
-  — remark plugin to support retext
-
-## Contribute
-
-See [`contributing.md`][contributing] in [`remarkjs/.github`][health] for ways
-to get started.
-See [`support.md`][support] for ways to get help.
-
-This project has a [code of conduct][coc].
-By interacting with this repository, organization, or community you agree to
-abide by its terms.
-
-## License
 
-[MIT][license] © [Titus Wormer][author]
+### Network Infrastructure
 
-<!-- Definitions -->
+**IP Address & Hosting Provider:**
 
-[build-badge]: https://github.com/remarkjs/remark-rehype/workflows/main/badge.svg
+- Found BNB’s IP using nslookup [bnb.bt](http://bnb.bt/), which resolved to 103.119.126.89.
 
-[build]: https://github.com/remarkjs/remark-rehype/actions
 
-[coverage-badge]: https://img.shields.io/codecov/c/github/remarkjs/remark-rehype.svg
+- Hosting provider details were not publicly available through WHOIS and used [nic.bt](http://nic.bt/)
 
-[coverage]: https://codecov.io/github/remarkjs/remark-rehype
+**Open Ports & Services:**
 
-[downloads-badge]: https://img.shields.io/npm/dm/remark-rehype.svg
+- Using Shodan, found open ports 433 and 8010, indicating exposed services that could be further examined for vulnerabilities.
 
-[downloads]: https://www.npmjs.com/package/remark-rehype
 
-[size-badge]: https://img.shields.io/bundlejs/size/remark-rehype
+The server is running:
 
-[size]: https://bundlejs.com/?q=remark-rehype
+- Apache HTTPD 2.4.41
+- Ubuntu Linux
+- TLS 1.3 with CHACHA20_POLY1305_SHA256 cipher suite
 
-[sponsors-badge]: https://opencollective.com/unified/sponsors/badge.svg
 
-[backers-badge]: https://opencollective.com/unified/backers/badge.svg
 
-[collective]: https://opencollective.com/unified
+### Social Media & Employee Information
 
-[chat-badge]: https://img.shields.io/badge/chat-discussions-success.svg
+- Employee Data Collection and credential exposure :
+    - Found an email linked to an IT department employee, Nima Gyeltshen, from nic.bt records .
+    
+ 
+    
+    - Checked his email on HaveIBeenPwned, and it appeared in the following breaches:
+        - Gravatar (2020)
+        - 000webhost (2015)
+        
+    
+        
+    - Customer Service Email ([contact@bnb.bt](mailto:contact@bnb.bt)) was also checked but had no known breaches.
+    
 
-[chat]: https://github.com/remarkjs/remark/discussions
+    
 
-[npm]: https://docs.npmjs.com/cli/install
+**Reverse Engineering Attempt:**
 
-[esm]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
+- Downloaded BNB’s APK file and attempted to decompile it using an online APK decompiler.
 
-[esmsh]: https://esm.sh
 
-[health]: https://github.com/remarkjs/.github
 
-[contributing]: https://github.com/remarkjs/.github/blob/main/contributing.md
 
-[support]: https://github.com/remarkjs/.github/blob/main/support.md
 
-[coc]: https://github.com/remarkjs/.github/blob/main/code-of-conduct.md
+- No immediate security flaws or exposed API keys were found, but further static and dynamic analysis could reveal more insights.
 
-[license]: license
+**Security Headers Analysis:**
 
-[author]: https://wooorm.com
+A security headers scan was performed to assess protection mechanisms against web-based attacks. 
 
-[github-markdown-css]: https://github.com/sindresorhus/github-markdown-css
+The scan revealed missing essential security headers, including:
 
-[hast]: https://github.com/syntax-tree/hast
 
-[hast-properties]: https://github.com/syntax-tree/hast#properties
 
-[mdast]: https://github.com/syntax-tree/mdast
+### Finacial statement
 
-[mdast-html]: https://github.com/syntax-tree/mdast#html
+[Financials.pdf](attachment:9c6e0295-fe7c-41db-8d4c-133c4e5fbd9b:Financials.pdf)
 
-[mdast-util-to-hast]: https://github.com/syntax-tree/mdast-util-to-hast
+site:bnb.bt filetype:pdf
 
-[mdast-util-to-hast-default-footnote-back-content]: https://github.com/syntax-tree/mdast-util-to-hast#defaultfootnotebackcontentreferenceindex-rereferenceindex
+• Highlights the financial health and operational performance of BAS Bank for 2022.
 
-[mdast-util-to-hast-default-footnote-back-label]: https://github.com/syntax-tree/mdast-util-to-hast#defaultfootnotebacklabelreferenceindex-rereferenceindex
+### Conclusion
 
-[mdast-util-to-hast-footnote-back-content-template]: https://github.com/syntax-tree/mdast-util-to-hast#footnotebackcontenttemplate
+This OSINT investigation of Bhutan National Bank (BNB) has revealed significant insights into its digital footprint and security posture. Through systematic analysis of public information, I identified several areas of concern: exposed services, potential data breaches, and vulnerabilities in the bank's technology stack. While BNB maintains  security measures—including HTTPS and SSL certification—several security gaps remain that could be exploited. Most notably, the presence of open ports and reliance on common technologies like WordPress and MySQL creates potential entry points for cyber threats. 
 
-[mdast-util-to-hast-footnote-back-label-template]: https://github.com/syntax-tree/mdast-util-to-hast#footnotebacklabeltemplate
+### **Recommendations**
 
-[mdast-util-to-hast-default-handlers]: https://github.com/syntax-tree/mdast-util-to-hast#defaulthandlers
-
-[mdast-util-to-hast-handlers]: https://github.com/syntax-tree/mdast-util-to-hast#handlers
-
-[mdast-util-to-hast-handler]: https://github.com/syntax-tree/mdast-util-to-hast#handler
-
-[rehype]: https://github.com/rehypejs/rehype
-
-[rehype-format]: https://github.com/rehypejs/rehype-format
-
-[rehype-highlight]: https://github.com/rehypejs/rehype-highlight
-
-[rehype-meta]: https://github.com/rehypejs/rehype-meta
-
-[rehype-minify]: https://github.com/rehypejs/rehype-minify
-
-[rehype-raw]: https://github.com/rehypejs/rehype-raw
-
-[rehype-sanitize]: https://github.com/rehypejs/rehype-sanitize
-
-[rehype-sanitize-clobber]: https://github.com/rehypejs/rehype-sanitize#example-headings-dom-clobbering
-
-[rehype-stringify]: https://github.com/rehypejs/rehype/tree/main/packages/rehype-stringify
-
-[rehype-remark]: https://github.com/rehypejs/rehype-remark
-
-[remark]: https://github.com/remarkjs/remark
-
-[remark-gfm]: https://github.com/remarkjs/remark-gfm
-
-[typescript]: https://www.typescriptlang.org
-
-[unified]: https://github.com/unifiedjs/unified
-
-[unified-mode]: https://github.com/unifiedjs/unified#transforming-between-ecosystems
-
-[unified-processor]: https://github.com/unifiedjs/unified#processor
-
-[unified-transformer]: https://github.com/unifiedjs/unified#transformer
-
-[wiki-xss]: https://en.wikipedia.org/wiki/Cross-site_scripting
-
-[api-default-footnote-back-content]: #defaultfootnotebackcontentreferenceindex-rereferenceindex
-
-[api-default-footnote-back-label]: #defaultfootnotebacklabelreferenceindex-rereferenceindex
-
-[api-default-handlers]: #defaulthandlers
-
-[api-options]: #options
-
-[api-remark-rehype]: #unifieduseremarkrehype-destination-options
+1. Enhance Security Measures: BNB should perform a comprehensive security audit of its online systems, with particular attention to the exposed ports (433 and 8010). 
+2. Regular Vulnerability Assessments: Establish a routine for conducting vulnerability assessments and penetration testing to identify and address potential weaknesses in the bank's digital assets. 
+3. Employee Training and Awareness: Implement cybersecurity training sessions for employees, focusing on phishing detection and secure information handling. This  approach will minimize security breaches caused by human error(employers).
+4. Monitor for Data Breaches: Continuously monitor platforms like "Have I Been Pwned" for any leaked credentials associated with BNB or its employees.
+5. Review and Update Technology Stack: Evaluate current software components for outdated or unsupported elements. Upgrade to more secure alternatives and add protection measures against known vulnerabilities.
