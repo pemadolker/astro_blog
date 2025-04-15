@@ -37,7 +37,6 @@ Nikto is  useful for detecting common issues, so I ran it early in my process to
 To gain a deeper scan of the services running soI performed a **service and script scan** using Nmap with the -sC flag. This flag runs default scripts that provide additional information, such as SSL certificate details and potential vulnerabilities.
 
 
-
 1. Bruteforcing Web Directory
 
  Since the target had an active web service, I suspected there might be hidden directories or files that could provide access to sensitive information.
