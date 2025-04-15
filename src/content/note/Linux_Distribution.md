@@ -1,5 +1,5 @@
 ---
-title: Linux_Structure notes
+title: Linux_Distribution notes
 publishDate: "2025-04-16T11:20:00Z"
 updateDate: "2025-04-17T14:32:00Z"
 ---

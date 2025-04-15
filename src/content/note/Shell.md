@@ -1,4 +1,8 @@
-
+---
+title: Linux_Shell notes
+publishDate: "2025-04-16T11:20:00Z"
+updateDate: "2025-04-17T14:32:00Z"
+---
 # Introduction to Shell
 
 Learning to use the Linux shell is very important, especially because many servers run on Linux. This is because Linux is more stable and has fewer errors compared to Windows. For example, many web servers are based on Linux.
