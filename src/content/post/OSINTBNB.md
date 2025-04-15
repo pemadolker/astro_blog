@@ -1,7 +1,7 @@
 ---
 title: "OSINT BNB"
 description: "This post is on OSINT BNB"
-publishDate: "8th April 2025"
+publishDate: "2025-4-15"
 tags: [ "Assignment", "BNB", "Osint"]
 ---
 ## 1. Introduction
