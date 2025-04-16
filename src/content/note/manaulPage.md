@@ -1,6 +1,6 @@
 ---
 title: Manual Page notes
-publishDate: "2025-04-16T 12:30:00:00Z"
+publishDate: "2025-04-16T13:00:00:00Z"
 updateDate: "2025-04-17T14:32:00Z"
 ---
 

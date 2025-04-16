@@ -1,6 +1,6 @@
 ---
 title: Linux_Structure notes
-publishDate: "2025-04-16T12:00:00Z"
+publishDate: "2025-04-16T13:00:00Z"
 updateDate: "2025-04-17T14:32:00Z"
 ---
 
