@@ -1,5 +1,5 @@
 ---
-title: Linux_Distribution notes
+title: Enumeration principles
 publishDate: "2025-04-23T13:00:00Z"
 updateDate: "2025-04-23T14:32:00Z"
 ---
