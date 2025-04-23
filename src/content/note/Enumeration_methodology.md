@@ -101,7 +101,7 @@ A methodology is basically a structured approach to gather information for a cer
 
 In our case, enumeration methodology helps us consistently explore a system from the outside in. Tools and commands will always change based on context, but the overall strategy—this layered approach—stays the same.
 
-> 🛠️ Tools are useful, but they're not the methodology. They're just part of our toolkit or a cheat sheet we can use when needed.
+> Tools are useful, but they're not the methodology. They're just part of our toolkit or a cheat sheet we can use when needed.
 
 ---
 
