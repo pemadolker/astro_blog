@@ -1,7 +1,7 @@
 ---
 title: Active Directory
-publishDate: "2025-04-30T13:00:00Z"
-updateDate: "2025-04-30T14:32:00Z"
+publishDate: "2025-04-29T13:00:00Z"
+updateDate: "2025-04-29T14:32:00Z"
 ---
 
 ## Overview
@@ -17,7 +17,7 @@ updateDate: "2025-04-30T14:32:00Z"
   - Trusts
 - AD provides **authentication and authorization** within a **Windows domain environment**.
 
-![alt text](image.png)
+![alt text](image.png)2
 
 
 ## Security Concerns

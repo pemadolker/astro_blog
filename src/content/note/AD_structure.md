@@ -1,7 +1,7 @@
 ---
 title: Active Directory Structure
-publishDate: "2025-04-30T13:00:00Z"
-updateDate: "2025-04-30T14:32:00Z"
+publishDate: "2025-04-29T13:00:00Z"
+updateDate: "2025-04-29T14:32:00Z"
 ---
 
 ## What is Active Directory (AD)?
