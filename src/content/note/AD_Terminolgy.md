@@ -3,7 +3,6 @@ title: Active Directory Terminology
 publishDate: "2025-04-29T13:00:00Z"
 updateDate: "2025-04-29T14:32:00Z"
 ---
-# Active Directory Terminology - Notes
 
 ## Object
 - **Definition:** Any resource in AD (users, computers, printers, etc.).
